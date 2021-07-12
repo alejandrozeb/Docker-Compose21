@@ -15,5 +15,16 @@ https://docs.docker.com/compose/install/
 documentacion de docker compose
 no tuve probelmas de instalacion siguiendo los pasos de la doc en ubuntu
 
+----instaland dependencias-----------
+
+RUN docker-php-ext-install mysqli \
+    && docker-php-ext-install tokenizer \
+    && docker-php-ext-install opcache \
+    && docker-php-ext-install pdo \
+    && docker-php-ext-install pdo_mysql 
+
+la sintaxis de la instlacion es propio de la instalacion
+
+si usamos otros frameworks podemos tener esta base de php
 
 */
