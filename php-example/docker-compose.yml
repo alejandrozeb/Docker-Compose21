@@ -1,34 +1,16 @@
 version: "3"
-volumes:
+volumes: 
   mysql_php_data:
-services:
-  database:
-    restart: on-failure:3
-    image: mysql:5.7
-    ports:
-      - 3300:3306
-    volumes:
-      - mysql_php_data:/var/lib/mysql
-    env_file: 
-      - .env.mysql      
-  php_my_admin:
-    restart: on-failure:3
-    image: phpmyadmin/phpmyadmin
-    ports:
-      - 3301:80
-    environment:
-      - PMA_ARBITRARY=1
-    depends_on:
-      - database
+services: 
   app:
     restart: on-failure:3
     build: .
-    volumes:
+    volumes: 
       - ./app/:/var/www/html/
-    ports:
-      - 70:80
-    env_file: 
-      - .env      
-    depends_on:
-      - database
-  
+    ports: 
+      - 80:80
+    environment: 
+      HOST: database
+      USER: root
+      PASSWORD: 123456
+      DATABASE: basic_crud
