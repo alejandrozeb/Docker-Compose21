@@ -73,5 +73,30 @@ para bajar el container
 te ayuda a evitar muchas configuraciones con docker
 
 
+-----volumenes----
+mysql_php_data:
+    database: 
+    restart: on-failure:3
+    decimos que inicien 3 veces
+
+    image: mysql:5.7
+    indicamos la imagen
+
+    ports:
+      - 3306:3306
+    indicamos el puerto de la pc y el container
+
+    volumes:
+      - mysql_php_data:/var/lib/mysql
+    donde se guarda el volumen la data
+
+si tenemos 100 cpntainers la informacion permanecera
+
+------dependedencias entre contenedores------
+depends_on: 
+      - database
+
+inidicamos que el servicio creado depedned de la bd simpre se crea
+primero la bd y luego el servicio para que sea en sequeencia
 
 */
