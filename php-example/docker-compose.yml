@@ -1,25 +1,33 @@
 version: "3"
 volumes: 
   mysql_php_data:
-services: 
+services:
   database: 
     restart: on-failure:3
     image: mysql:5.7
     ports:
-      - 3306:3306
+      - 3300:3306
     volumes:
       - mysql_php_data:/var/lib/mysql
     environment: 
-      MYSQL_USER: root
       MYSQL_ROOT_PASSWORD: 123456
-      MTSQL_PASSWORD: 123456
+      MYSQL_PASSWORD: 123456
+  php_my_admin:
+    restart: on-failure:3
+    image: phpmyadmin
+    ports: 
+      - 3301:80
+    environment: 
+      - PMA_ARBITRARY=1
+    depends_on: 
+      - database 
   app:
     restart: on-failure:3
     build: .
     volumes: 
       - ./app/:/var/www/html/
     ports: 
-      - 80:80
+      - 70:80
     environment: 
       HOST: database
       USER: root

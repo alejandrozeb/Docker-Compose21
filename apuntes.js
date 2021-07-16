@@ -98,5 +98,15 @@ depends_on:
 
 inidicamos que el servicio creado depedned de la bd simpre se crea
 primero la bd y luego el servicio para que sea en sequeencia
+-----------mysql------
+podemos usar dos opciones para base de datos workbrench o phpmyadmin
 
+PMA_ARBITRARY=1
+documentacion de ph myadmin
+
+docker compose se encarga de crear y hacer el build de la imagen en caso no este creada
+ademas de descargar la imagen si es necesario
+
+al configurar no me permite configurar el mysql_root como root
+para controlar el user solo uso la variable de entorno root_password
 */
