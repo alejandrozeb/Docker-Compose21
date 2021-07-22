@@ -109,4 +109,26 @@ ademas de descargar la imagen si es necesario
 
 al configurar no me permite configurar el mysql_root como root
 para controlar el user solo uso la variable de entorno root_password
+
+
+---------DOCKER CURRICULUM-----
+https://docker-curriculum.com/#playing-with-busybox
+
+$ docker rm $(docker ps -a -q -f status=exited)
+
+eliminar todos los contenedores en estado exited
+
+terminology
+images, containres, Docker daemon(servicio en pc), dockerClient(linena de comando )
+docker hub
+
+Static sites
+
+docker run --rm <<nombre>>
+rm remueve el contenedor cuando se sale de el mismo
+
+
+
+
+
 */
